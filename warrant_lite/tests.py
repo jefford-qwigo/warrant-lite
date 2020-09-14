@@ -17,9 +17,11 @@ class WarrantLiteTestCase(unittest.TestCase):
         self.cognito_user_pool_id = env('COGNITO_USER_POOL_ID')
         self.username = env('COGNITO_TEST_USERNAME')
         self.password = env('COGNITO_TEST_PASSWORD')
+        self.pool_region = env('COGNITO_POOL_REGION')
         self.wl = WarrantLite(username=self.username, password=self.password,
                           pool_id=self.cognito_user_pool_id,
-                          client_id=self.app_id, client_secret=self.client_secret)
+                          client_id=self.app_id, client_secret=self.client_secret,
+                          pool_region=self.pool_region)
 
     def tearDown(self):
         del self.wl
